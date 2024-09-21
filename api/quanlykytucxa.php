@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])) {
-  // kiểm tra permission
-} else {
-  header("Location: ../index.php");
-  exit; // Thoát khỏi script
-}
+// if (isset($_SESSION['username'])) {
+//   // kiểm tra permission
+// } else {
+//   header("Location: ../index.php");
+//   exit; // Thoát khỏi script
+// }
 include 'db.php'; // Kết nối với cơ sở dữ liệu
 
 header("Content-Type: application/json");
