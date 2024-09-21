@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Hoanglong1!";
+$servername = "192.168.110.107:3306";
+$username = "admin";
+$password = "123";
 $dbname = "hoanglongdjc";
 
 // Tạo kết nối
@@ -11,4 +11,3 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
-?>

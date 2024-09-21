@@ -1,7 +1,7 @@
 <?php
 $version = 1.0;
 session_start();
-if(isset($_SESSION['username'])){
+if (isset($_SESSION['username'])) {
     // Chuyển hướng 
     header('Location: index.php');
 }
@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
         // Kiểm tra mật khẩu
-        if ($password==$user['password']) {
+        if ($password == $user['password']) {
             // Lưu thông tin người dùng vào session
-            setcookie("user_id",$user['id'], time() + 360000, "/");
+            setcookie("user_id", $user['id'], time() + 360000, "/");
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
             echo "Sang dashboard";
@@ -44,15 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập - <?php echo $version; ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <h2>Đăng nhập - <?php echo $version; ?></h2>
-    <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
+    <?php if (isset($error)) {
+        echo "<p>$error</p>";
+    } ?>
     <form method="post" action="login.php">
         <label for="username">Tên đăng nhập:</label>
         <input type="text" id="username" name="username" required>
@@ -63,4 +67,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Đăng nhập</button>
     </form>
 </body>
+
 </html>
